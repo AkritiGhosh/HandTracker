@@ -10,6 +10,10 @@ The most basic hand tracking function which shows landmarks in your hand.
 
 ![Hand Landmarks(CV)](https://google.github.io/mediapipe/images/mobile/hand_landmarks.png "Hand Landmarks")
 
+### Libraries required (Install to run)
+- OpenCV
+- Mediapipe
+
 There are 2 cameras used for this, one is the primary webcam of your laptop/system. The other is a droidcam. Droidcam is a free software available for Windows to use Android camera as webcam.(Great for video conferences and CV projects).
 
 ![webcam](/images/webcam.PNG "Using a Webcam")
