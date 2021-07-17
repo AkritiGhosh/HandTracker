@@ -2,8 +2,9 @@ import cv2
 import mediapipe as mp
 import time
 
-cap = cv2.VideoCapture(0) # Built-in webcam
-# cap = cv2.VideoCapture('http://10.126.160.55:4747/mjpegfeed?640x480') # Droidcam
+# cap = cv2.VideoCapture(0) # Built-in webcam
+cap = cv2.VideoCapture('http://dev.ip.add.res:port/mjpegfeed?640x480') # Droidcam
+# To use droidcam, insert the device ip address given the droidcam app, and the port number.
 
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
@@ -13,7 +14,6 @@ pTime = 0
 cTime = 0
 
 while True:
-
 
     suc, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -33,9 +33,9 @@ while True:
                     cv2.circle(img, (cx, cy), 25, (255, 255, 0), cv2.FILLED)
 
             # mpDraw.draw_landmarks(img, hndLmk) ### landmark points only
-            mpDraw.draw_landmarks(img, hndLmk, mpHands.HAND_CONNECTIONS) ### Lines connecting points in 
+            mpDraw.draw_landmarks(img, hndLmk, mpHands.HAND_CONNECTIONS) ### Lines connecting landmarks
 
-# Calculate and print FPS 
+    # Calculate and print FPS 
     cTime = time.time()
     fps = 1/(cTime-pTime)
     pTime = cTime
