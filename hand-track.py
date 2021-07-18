@@ -42,4 +42,13 @@ while True:
     cv2.putText(img, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (255, 20, 240), 3)
 
     cv2.imshow("Camera", img)
-    cv2.waitKey(1)
+    key = cv2.waitKey(1) & 0xFF ### get the last 8 bit of binary value
+    print(key)
+    # Check and change the key value below to change the exit key
+    # Exit loop if q is pressed
+    if key == ord('q'):
+        break
+
+# Exit code !!!important
+cv2.destroyAllWindows()
+exit()
